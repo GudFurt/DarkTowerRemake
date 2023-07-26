@@ -8,7 +8,7 @@ public class PlayerControler : MonoBehaviour
     public bool isMoving;
     public Vector2 input;
 
-
+    public LayerMask solidObjectsLayer;
 
 
 
@@ -25,7 +25,10 @@ public class PlayerControler : MonoBehaviour
                 targetPosition.x += input.x;
                 targetPosition.y += input.y;
 
-                StartCoroutine(Move(targetPosition));
+                if(isWalkable(targetPosition)){
+                    StartCoroutine(Move(targetPosition));
+                }
+                
             }
         }
 
@@ -43,5 +46,12 @@ public class PlayerControler : MonoBehaviour
         
         isMoving = false;
 
+    }
+
+    private bool isWalkable(Vector3 targetPosition){
+        if(Physics2D.OverlapCircle(targetPosition, 0.2f, solidObjectsLayer) != null){
+            return false;
+        }
+        return true;
     }
 }
