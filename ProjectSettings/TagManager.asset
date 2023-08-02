@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Teleporter
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - 
   - SolidObjects
   - Interactable
-  - 
+  - Enemies
   - 
   - 
   - 
@@ -46,6 +48,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2263705305
+    locked: 0
+  - name: Enemy
+    uniqueID: 645501619
     locked: 0
   - name: Player
     uniqueID: 3221394517
