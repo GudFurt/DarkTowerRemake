@@ -9,6 +9,7 @@ public class PlayerControler : MonoBehaviour
     public Vector2 input;
 
     public LayerMask solidObjectsLayer;
+    public LayerMask EnemyLayer;
 
 
 

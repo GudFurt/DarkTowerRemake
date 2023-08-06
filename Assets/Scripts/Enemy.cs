@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDeath(){
 
-        this.gameObject.SetActive(false);    
+        Debug.Log("Joe Biden");
     
     }
 }

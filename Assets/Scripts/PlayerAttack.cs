@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    // Update is called once per frame
-    private void OnCollisionEnter2d(Collision2D collision){
+    
+    public LayerMask enemyLayer;
+
+    private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.tag == "Enemy"){
-            collision.gameObject.GetComponent<Enemy>().EnemyDeath();
+            if(Physics2D.OverlapCircle(collision.gameObject.transform.position, 0.2f, enemyLayer) != null){
+            Destroy(collision.gameObject);
+        }
         }
     }
 }

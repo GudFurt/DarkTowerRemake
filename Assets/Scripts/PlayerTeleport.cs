@@ -12,13 +12,13 @@ public class PlayerTeleport : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E)){
-            if(currentTeleporter.GetComponent<Teleporter>().GetDestination().position.y > currentTeleporter.transform.position.y && this.GetComponent<PlayerControler>().isMoving == false){
+            if(currentTeleporter.GetComponent<Teleporter>().GetDestination().position.y > currentTeleporter.transform.position.y){
                 this.GetComponent<PlayerControler>().enabled = false;
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
                 WorldCamera.transform.position = new Vector3(0, WorldCamera.transform.position.y + 10, -10f);
                 this.GetComponent<PlayerControler>().enabled = true;
             }
-            else if(currentTeleporter.GetComponent<Teleporter>().GetDestination().position.y < currentTeleporter.transform.position.y && this.GetComponent<PlayerControler>().isMoving == false){
+            else if(currentTeleporter.GetComponent<Teleporter>().GetDestination().position.y < currentTeleporter.transform.position.y){
                 this.GetComponent<PlayerControler>().enabled = false;
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
                 WorldCamera.transform.position = new Vector3(0, WorldCamera.transform.position.y + (-10), -10f);
@@ -26,6 +26,8 @@ public class PlayerTeleport : MonoBehaviour
             }
         }
     }
+
+    //&& this.GetComponent<PlayerControler>().isMoving == false
 
     private void OnTriggerEnter2D(Collider2D other){
         if (other.CompareTag("Teleporter")){
